@@ -1,0 +1,320 @@
+
+
+<div style="overflow-x: hidden">
+  <body class="tela">
+    <header class="navigation-above" *ngIf="innerWidth > 999">
+      <nav>
+        <a href="#" style="z-index: 0;"><img src="assets/logo.png" alt="" class="logo-responsive-header" /></a>
+
+        <div class="mobile-menu" (click)="abrir()">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+
+        <div class="mobile-menu2 button-2" (click)="abrir()">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+
+        <ul class="nav-list">
+          <li><a href="estoque">Estoque</a></li>
+          <li><a href="contato">Contato</a></li>
+          <li><a href="localizacao">Localização</a></li>
+          <li><a href="">Quem somos?</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+
+  <div class="box-black5" style="overflow-x: hidden" *ngIf="innerWidth < 1000">
+    <img src="assets/logo.png" alt="" class="logo-responsive3" />
+    <div class="mobile-menu" (click)="abrir()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </div>
+  <div class="box-black6" *ngIf="this.responsive === true">
+    <ul>
+      <li><a href="estoque">Estoque</a></li>
+      <li><a href="contato">Contato</a></li>
+      <li><a href="localizacao">Localização</a></li>
+      <li><a href="">Quem somos?</a></li>
+    </ul>
+  </div>
+
+  <div
+    class="carousel carousel-below"
+    style="margin-left: -0.5rem; margin-right: -1vh; z-index: 2"
+    [ngClass]="{
+      'img-1': bannerSelectedIndex === 0,
+      'img-2': bannerSelectedIndex === 1,
+      'img-3': bannerSelectedIndex === 2
+    }"
+  >
+    <div
+      class="carousel-title"
+      style="padding: 0 !important; margin-top: 0.5rem"
+    >
+      <div class="carousel-text" *ngIf="bannerSelectedIndex === 0"></div>
+      <div class="carousel-text" *ngIf="bannerSelectedIndex === 1"></div>
+      <div class="carousel-text" *ngIf="bannerSelectedIndex === 2"></div>
+    </div>
+    <div class="controller-carousel">
+      <a class="carousel-arrow arrow-left" (click)="previousBanner()">
+        <img src="../assets/arrow.png" style="width: 60px" />
+      </a>
+      <div class="controller">
+        <div
+          class="controller-options"
+          (click)="selectBanner(0)"
+          [ngClass]="{ active: bannerSelectedIndex === 0 }"
+        ></div>
+        <div
+          class="controller-options"
+          (click)="selectBanner(1)"
+          [ngClass]="{ active: bannerSelectedIndex === 1 }"
+        ></div>
+        <div
+          class="controller-options"
+          (click)="selectBanner(2)"
+          [ngClass]="{ active: bannerSelectedIndex === 2 }"
+        ></div>
+      </div>
+
+      <a class="carousel-arrow arrow-right" (click)="nextBanner()">
+        <img src="../assets/arrowRight.png" style="width: 60px" />
+      </a>
+    </div>
+  </div>
+
+
+<div class="align-text">
+  <h1 style="margin-top: 3rem;">{{ title[selectedNR].title }}</h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center " style="margin-top: 3rem;" [ngClass]=" {'flex-column' : innerWidth <= 1200}">
+  <div *ngIf="innerWidth > 1200">
+    <a style="position: absolute; margin-top: 18rem; margin-left: 1.5rem; cursor: pointer" (click)="voltar()"><img src="../assets/arrow.png" style="width: 60px" /></a>
+    <img src="{{title[selectedNR].foto1}}" class="foto-carro" *ngIf="foto === 1">
+    <img src="{{title[selectedNR].foto2}}" class="foto-carro" *ngIf="foto === 2">
+    <img src="{{title[selectedNR].foto3}}" class="foto-carro" *ngIf="foto === 3">
+    <img src="{{title[selectedNR].foto4}}" class="foto-carro" *ngIf="foto === 4">
+    <img src="{{title[selectedNR].foto5}}" class="foto-carro" *ngIf="foto === 5">
+    <img src="{{title[selectedNR].foto6}}" class="foto-carro" *ngIf="foto === 6">
+    <img src="{{title[selectedNR].foto7}}" class="foto-carro" *ngIf="foto === 7">
+    <img src="{{title[selectedNR].foto8}}" class="foto-carro" *ngIf="foto === 8">
+    <a style="position: absolute; margin-left: -5rem; margin-top: 18rem; cursor: pointer;" (click)="avancar()"><img src="../assets/arrowRight.png" style="width: 60px" /></a>
+  </div>
+
+  <div *ngIf="innerWidth <= 1200">
+    <div class="p-3 m-0 border-0 bd-example m-0 border-0" style="padding: 0 !important; overflow-y: hidden;" >
+
+      <!-- Example Code -->
+
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100 " src="{{ title[selectedNR].foto1 }}" style="height: 100%;">
+          </div>
+          <div class="carousel-item" style="height: auto;">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto2 }}" alt="">
+           </div>
+          <div class="carousel-item">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto3 }}" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto4 }}" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto5 }}" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto6 }}" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto7 }}" alt="">
+          </div>
+          <div class="carousel-item">
+            <img class="foto-carro bd-placeholder-img bd-placeholder-img-lg d-block w-100" src="{{ title[selectedNR].foto8 }}" alt="">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+      <!-- End Example Code -->
+    </div>
+  </div>
+  <div class="box-car" *ngIf="innerWidth > 1200">
+    <div style="margin-top: 15px;">
+
+      <p class="text-info-carros ">{{ title[selectedNR].marca }}</p>
+    </div>
+    <div>
+
+      <p class="text-info-carros">{{ title[selectedNR].modelo }}</p>
+    </div>
+    <div>
+
+      <p class="text-info-carros">ANO: {{ title[selectedNR].ano }}</p>
+    </div>
+    <div>
+
+      <p class="text-info-carros">COR: {{ title[selectedNR].cor }}</p>
+    </div>
+    <div>
+
+      <p class="text-info-carros">CÂMBIO: {{ title[selectedNR].cambio }}</p>
+    </div>
+    <div>
+
+      <p class="text-info-carros">KM: {{ title[selectedNR].km }}</p>
+    </div>
+    <div>
+
+      <p class="text-info-carros">COMBUSTÍVEL: {{ title[selectedNR].combustivel }}</p>
+    </div>
+    <div style="margin-top: 60px;">
+
+      <a class="text-info-carros">{{ title[selectedNR].valor }}</a>
+    </div>
+    <div style="margin-top: 0.3rem; margin-bottom: 1rem;">
+      <button class="btn-vendedor">Falar com um vendedor</button>
+    </div>
+  </div>
+
+  <div class="box-car d-flex flex-column" *ngIf="innerWidth < 1201">
+    <div class="items-descricao col d-flex flex-row" style="margin-top: 2.5rem;" [ngClass]=" {'flex-column' : innerWidth <= 530}">
+      <p class="text-info-carros col">{{ title[selectedNR].marca }}</p>
+      <p class="text-info-carros col">{{ title[selectedNR].modelo }}</p>
+      <p class="text-info-carros col">ANO: {{ title[selectedNR].ano }}2020</p>
+      <p class="text-info-carros col">COR: {{ title[selectedNR].cor }}</p>
+
+
+    </div>
+    <div class="items-descricao col d-flex flex-row" style="margin-top: 2.5rem;" [ngClass]=" {'flex-column' : innerWidth <= 530}">
+      <p class="text-info-carros col">CÂMBIO: {{ title[selectedNR].cambio }}</p>
+      <p class="text-info-carros col">KM: {{ title[selectedNR].km }}</p>
+      <p class="text-info-carros col">COMBUSTÍVEL: {{ title[selectedNR].combustivel }}</p>
+      <p class="text-info-carros col">{{ title[selectedNR].valor }}</p>
+
+
+    </div>
+    <div style="margin-top: 0.6rem">
+      <button class="btn-vendedor">Falar com um vendedor</button>
+    </div>
+  </div>
+
+</div>
+<div class="align-text">
+  <div class="box-red d-flex flex-column">
+    <div style="margin-top: 1rem;">
+      <h2 class="text-info-carros">INFORMAÇÕES COMPLEMENTARES</h2>
+    </div>
+    <div class="items-descricao col d-flex flex-row" style="margin-top: 2.5rem;" [ngClass]=" {'flex-column' : innerWidth <= 530}">
+      <p class="font-p col">{{title[selectedNR].info1}}</p>
+      <p class="font-p col">{{title[selectedNR].info2}}</p>
+      <p class="font-p col">{{title[selectedNR].info3}}</p>
+      <p class="font-p col">{{title[selectedNR].info4}}</p>
+
+    </div>
+    <div class="items-descricao col d-flex flex-row" style="margin-top: 2.5rem;" [ngClass]=" {'flex-column' : innerWidth <= 530}">
+      <p class="font-p col">{{title[selectedNR].info5}}</p>
+      <p class="font-p col">{{title[selectedNR].info6}}</p>
+      <p class="font-p col">{{title[selectedNR].info7}}</p>
+      <p class="font-p" style="padding-bottom: 1rem;">{{title[selectedNR].info8}}</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="text-margin">
+  <h2>CONFIRA AQUI OUTROS MODELOS!</h2>
+</div>
+
+<div *ngIf="innerWidth > 1430">
+  <app-carousel-home></app-carousel-home>
+</div>
+
+<div *ngIf="innerWidth > 999 && innerWidth <= 1430">
+  <app-carousel-home-responsive></app-carousel-home-responsive>
+</div>
+
+<div *ngIf="innerWidth > 699 && innerWidth <= 999">
+  <app-carousel-home-responsive2></app-carousel-home-responsive2>
+</div>
+
+<div *ngIf="innerWidth > 365 && innerWidth < 700">
+  <app-carousel-home-responsive3></app-carousel-home-responsive3>
+</div>
+
+<div *ngIf="innerWidth < 366">
+  <app-carousel-home-responsive4></app-carousel-home-responsive4>
+</div>
+
+<div class="box-responsive" style="margin-top: 3rem;">
+  <div class="box-black3">
+
+    <div>
+      <div>
+        <a class="contato-text">ENTRE EM CONTATO!</a>
+      </div>
+      <div class="contatos" style="margin-top: 1rem;">
+        <div class="icon-contato insta">
+        </div>
+        <div class="icon-contato face">
+        </div>
+        <div class="icon-contato whats">
+        </div>
+      </div>
+    <div class="contato-localizacao-margin" style="margin-top: 4rem;">
+      <a class="contato-text-localizacao">LOCALIZAÇÃO</a>
+    </div>
+    <div class="contato-rua-margin">
+      <a class="contato-text-rua">AV.Cai, 1712 - Princesa Isabel - Cachoeirinha - RS</a>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 1455" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="1100" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 1255 && innerWidth < 1456" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="900" height="470" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 1100 && innerWidth < 1256" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="750" height="370" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 772 && innerWidth < 1101" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="700" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 535 && innerWidth < 773" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth < 536" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="380" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="logo-autojb" >
+    </div>
+    <div class="contato-slogan-margin" style="padding-bottom: 150px">
+      <a class="contato-text-slogan">A MELHOR OPÇÃO PARA VOCÊ!</a>
+    </div>
+  </div>
+  </div>
+</div>
+<div>
+  <div class="box-black4" style="overflow-x: hidden;">
+    <img src="assets/logo.png" alt="" class="logo-responsive2" />
+    <ul class="nav-list responsive-text">
+      <li><p>© 2023 AUTO JB - desenvolvido por webUp!</p></li>
+    </ul>
+  </div>
+</div>
+</div>

@@ -1,0 +1,307 @@
+<div style="overflow-x: hidden">
+  <body class="tela">
+    <header class="navigation-above" *ngIf="innerWidth > 999">
+      <nav>
+        <a href="#" style="z-index: 0;"><img src="assets/logo.png" alt="" class="logo-responsive-header" /></a>
+
+        <div class="mobile-menu" (click)="abrir()">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+
+        <div class="mobile-menu2 button-2" (click)="abrir()">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+
+        <ul class="nav-list">
+          <li><a routerLink="estoque">Estoque</a></li>
+          <li><a href="contato">Contato</a></li>
+          <li><a href="localizacao">Localização</a></li>
+          <li><a href="">Quem somos?</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+
+  <div class="box-black5" style="overflow-x: hidden" *ngIf="innerWidth < 1000">
+    <img src="assets/logo.png" alt="" class="logo-responsive3" />
+    <div class="mobile-menu" (click)="abrir()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </div>
+  <div class="box-black6" *ngIf="this.responsive === true">
+    <ul>
+      <li><a routerLink="estoque">Estoque</a></li>
+      <li><a href="contato">Contato</a></li>
+      <li><a href="localizacao">Localização</a></li>
+      <li><a href="">Quem somos?</a></li>
+    </ul>
+  </div>
+
+  <div
+    class="carousel carousel-below"
+    style="margin-left: -0.5rem; margin-right: -1vh; z-index: 2"
+    [ngClass]="{
+      'img-1': bannerSelectedIndex === 0,
+      'img-2': bannerSelectedIndex === 1,
+      'img-3': bannerSelectedIndex === 2
+    }"
+  >
+    <div
+      class="carousel-title"
+      style="padding: 0 !important; margin-top: 0.5rem"
+    >
+      <div class="carousel-text" *ngIf="bannerSelectedIndex === 0"></div>
+      <div class="carousel-text" *ngIf="bannerSelectedIndex === 1"></div>
+      <div class="carousel-text" *ngIf="bannerSelectedIndex === 2"></div>
+    </div>
+    <div class="controller-carousel">
+      <a class="carousel-arrow arrow-left" (click)="previousBanner()">
+        <img src="../assets/arrow.png" style="width: 60px" />
+      </a>
+      <div class="controller">
+        <div
+          class="controller-options"
+          (click)="selectBanner(0)"
+          [ngClass]="{ active: bannerSelectedIndex === 0 }"
+        ></div>
+        <div
+          class="controller-options"
+          (click)="selectBanner(1)"
+          [ngClass]="{ active: bannerSelectedIndex === 1 }"
+        ></div>
+        <div
+          class="controller-options"
+          (click)="selectBanner(2)"
+          [ngClass]="{ active: bannerSelectedIndex === 2 }"
+        ></div>
+      </div>
+
+      <a class="carousel-arrow arrow-right" (click)="nextBanner()">
+        <img src="../assets/arrowRight.png" style="width: 60px" />
+      </a>
+    </div>
+  </div>
+
+  <div class="gray-box">
+    <div
+      class="options flex-item font-curso-responsive"
+      (click)="selectFormation(1)"
+      [ngClass]="{ active: formationSelected === 1 }"
+    >
+      Carros
+    </div>
+    <div
+      class="options flex-item font-curso-responsive"
+      (click)="selectFormation(2)"
+      [ngClass]="{ active: formationSelected === 2 }"
+    >
+      Motos
+    </div>
+  </div>
+
+  <div class="formacoes">
+    <h1
+      class="titles text-align-center"
+      style="color: #000000 !important; margin-top: 3rem"
+    >
+      ESTOQUE
+    </h1>
+
+    <div class="white-box" *ngIf="formationSelected === 1">
+      <div class="row container-cards" >
+        <div
+          class="card style-card "
+          *ngFor="let card of carros"
+        >
+          <img
+            [src]="card.img"
+            class="card-img-top"
+            [alt]="card.alt"
+          />
+          <div class="card-body d-flex flex-column" style="height: 200px">
+            <h5
+              class="card-title title-white-cards style-title-card" style="color: white;"
+            >
+              {{ card.title }}
+            </h5>
+            <h5
+              class="card-title title-white-cards style-title-card" style="color: white; font-size: 18px !important;"
+            >
+              {{ card.description }}
+            </h5>
+            <h5
+            class="card-title title-white-cards style-title-card" style="color: white; font-size: 18px !important;"
+          >
+            {{ card.value }}
+          </h5>
+            <div class="mt-auto">
+              <button
+                name="btnsaiba"
+                _ngcontent-fts-c20=""
+                class="align-self-end btn btn-nrs btn-carousel color-button style-btn-link"
+                routerLink="{{ card.link }}"
+              >
+                Saiba mais
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="formacoes">
+      <div class="white-box" *ngIf="formationSelected === 2">
+        <div class="row container-cards">
+          <div
+            class="card style-card col-md-3 col-sm-4"
+            *ngFor="let card of motos"
+          >
+            <img
+              [src]="card.img"
+              class="card-img-top col-md-3"
+              [alt]="card.alt"
+              style="height: 300px"
+            />
+            <div class="card-body d-flex flex-column" style="height: 200px">
+              <h5
+                class="card-title title-white-cards style-title-card style-title-card" style="color: white;"
+              >
+                {{ card.title }}
+              </h5>
+              <div class="mt-auto">
+                <button
+                  name="btnsaiba"
+                  _ngcontent-fts-c20=""
+                  class="align-self-end btn btn-nrs btn-carousel color-button style-btn-link"
+                  routerLink="{{ card.link }}"
+                >
+                  Saiba mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-responsive" style="margin-top: 3rem">
+      <div class="box-black3">
+        <div>
+          <div>
+            <a class="contato-text">ENTRE EM CONTATO!</a>
+          </div>
+          <div class="contatos" style="margin-top: 1rem">
+            <div class="icon-contato insta"></div>
+            <div class="icon-contato face"></div>
+            <div class="icon-contato whats"></div>
+          </div>
+          <div class="contato-localizacao-margin" style="margin-top: 4rem">
+            <a class="contato-text-localizacao">LOCALIZAÇÃO</a>
+          </div>
+          <div class="contato-rua-margin">
+            <a class="contato-text-rua"
+              >AV.Cai, 1712 - Princesa Isabel - Cachoeirinha - RS</a
+            >
+          </div>
+          <div style="margin-top: 2rem" *ngIf="innerWidth > 1455">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr"
+              width="1100"
+              height="550"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div
+            style="margin-top: 2rem"
+            *ngIf="innerWidth > 1255 && innerWidth < 1456"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr"
+              width="900"
+              height="470"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div
+            style="margin-top: 2rem"
+            *ngIf="innerWidth > 1100 && innerWidth < 1256"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr"
+              width="750"
+              height="370"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div
+            style="margin-top: 2rem"
+            *ngIf="innerWidth > 772 && innerWidth < 1101"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr"
+              width="700"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div
+            style="margin-top: 2rem"
+            *ngIf="innerWidth > 535 && innerWidth < 773"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr"
+              width="500"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div style="margin-top: 2rem" *ngIf="innerWidth < 536">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr"
+              width="380"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="logo-autojb"></div>
+          <div class="contato-slogan-margin" style="padding-bottom: 150px">
+            <a class="contato-text-slogan">A MELHOR OPÇÃO PARA VOCÊ!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="box-black4" style="overflow-x: hidden">
+        <img src="assets/logo.png" alt="" class="logo-responsive2" />
+        <ul class="nav-list responsive-text">
+          <li><p>© 2023 AUTO JB - desenvolvido por webUp!</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

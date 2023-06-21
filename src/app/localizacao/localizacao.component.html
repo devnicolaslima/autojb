@@ -1,0 +1,162 @@
+<div style="overflow-x: hidden;">
+<body class="tela">
+  <header class="navigation-above" *ngIf="innerWidth > 999">
+    <nav>
+      <a href="#" style="z-index: 0;"><img src="assets/logo.png" alt="" class="logo-responsive-header" /></a>
+
+      <div
+        class="mobile-menu"
+        (click)="abrir()"
+      >
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+
+      <div
+        class="mobile-menu2 button-2"
+        (click)="abrir()"
+      >
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+
+      <ul class="nav-list">
+        <li><a href="estoque">Estoque</a></li>
+        <li><a href="contato">Contato</a></li>
+        <li><a href="localizacao">Localização</a></li>
+        <li><a href="">Quem somos?</a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+<div class="box-black5" style="overflow-x: hidden;" *ngIf="innerWidth < 1000">
+  <a href="#" style="z-index: 1;"><img src="assets/logo.png" alt="" class="logo-responsive3" /></a>
+  <div
+        class="mobile-menu"
+        (click)="abrir()"
+      >
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+</div>
+<div class="box-black6" *ngIf="this.responsive === true">
+  <ul >
+    <li><a href="estoque">Estoque</a></li>
+    <li><a href="contato">Contato</a></li>
+    <li><a href="localizacao">Localização</a></li>
+    <li><a href="">Quem somos?</a></li>
+  </ul>
+</div>
+
+<div
+  class="carousel carousel-below"
+  style="margin-left: -0.5rem; margin-right: -1vh; z-index: 2;"
+  [ngClass]="{
+    'img-1': bannerSelectedIndex === 0,
+    'img-2': bannerSelectedIndex === 1,
+    'img-3': bannerSelectedIndex === 2
+  }"
+>
+  <div
+    class="carousel-title"
+    style="padding: 0 !important; margin-top: 0.5rem"
+  >
+    <div class="carousel-text" *ngIf="bannerSelectedIndex === 0"></div>
+    <div class="carousel-text" *ngIf="bannerSelectedIndex === 1"></div>
+    <div class="carousel-text" *ngIf="bannerSelectedIndex === 2"></div>
+  </div>
+  <div class="controller-carousel">
+    <a class="carousel-arrow arrow-left" (click)="previousBanner()">
+      <img src="../assets/arrow.png" style="width: 60px" />
+    </a>
+    <div class="controller">
+      <div
+        class="controller-options"
+        (click)="selectBanner(0)"
+        [ngClass]="{ active: bannerSelectedIndex === 0 }"
+      ></div>
+      <div
+        class="controller-options"
+        (click)="selectBanner(1)"
+        [ngClass]="{ active: bannerSelectedIndex === 1 }"
+      ></div>
+      <div
+        class="controller-options"
+        (click)="selectBanner(2)"
+        [ngClass]="{ active: bannerSelectedIndex === 2 }"
+      ></div>
+    </div>
+
+    <a class="carousel-arrow arrow-right" (click)="nextBanner()">
+      <img src="../assets/arrowRight.png" style="width: 60px" />
+    </a>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 0px 150px 0px 150px">
+  <div class="box-black3">
+    <div>
+    <div class="contato-localizacao-margin">
+      <a class="contato-text-localizacao" style="color: black !important;">LOCALIZAÇÃO</a>
+    </div>
+    <div class="contato-rua-margin">
+      <a class="contato-text-rua" style="color: black !important;">AV.Cai, 1712 - Princesa Isabel - Cachoeirinha - RS</a>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 1269" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="900" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 1064 && innerWidth < 1270" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 849 && innerWidth < 1065" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth > 699 && innerWidth < 850" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="350" height="270" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top: 2rem;" *ngIf="innerWidth < 700" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.7196608269205!2d-51.08873878488762!3d-29.92997188192413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951973a7b86023e7%3A0x24c98ba299e6676b!2sAUTO%20JB!5e0!3m2!1spt-BR!2sbr!4v1685710398099!5m2!1spt-BR!2sbr" width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 40px 150px 0px 150px">
+  <div class="box-black">
+    <div>
+      <a class="contato-text">ENTRE EM CONTATO!</a>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 0px 150px 0px 150px">
+  <div class="box-black2">
+    <div class="contatos">
+      <div class="icon-contato insta">
+      </div>
+      <div class="icon-contato face">
+      </div>
+      <div class="icon-contato whats">
+      </div>
+      <div class="logo-autojb" >
+      </div>
+      <div class="contato-slogan-margin" style="padding-bottom: 150px;">
+        <a class="contato-text-slogan">A MELHOR OPÇÃO PARA VOCÊ!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="box-black4" style="overflow-x: hidden;">
+    <img src="assets/logo.png" alt="" class="logo-responsive2" />
+    <ul class="nav-list responsive-text">
+      <li><p>© 2023 AUTO JB - desenvolvido por webUp!</p></li>
+    </ul>
+  </div>
+</div>
+</div>

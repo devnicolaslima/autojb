@@ -1,0 +1,382 @@
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.style-font-title{
+  margin-bottom: 40px !important;
+  color: #022E4D !important;
+}
+
+.style-title-card{
+  white-space: pre-wrap;
+  font-size: 24px !important;
+  justify-content: center;
+  text-align: center;
+  padding-top: 1rem;
+  color: white;
+}
+
+
+
+
+.div-fit {
+  height: fit-content;
+  padding: 25px 0px;
+}
+
+.picsum-img-wrapper  {
+height: 736px;
+width: 100%;
+}
+
+.carousel-img  {
+width: 100%;
+}
+
+.remove-padding-bottom {
+  padding-bottom: 0;
+}
+
+.align-center {
+  align-items: center;
+  display: flex;
+}
+
+.carousel-caption {
+  top: 40%;
+  left: 8%;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  text-align: initial;
+}
+
+.white-container-h6 {
+font-family: roboto;
+  font-weight: 400;
+  font-size: 24px;
+  color: #0789E5;
+  padding-top: 30px;
+}
+
+.h6-box {
+font-size: 18px;
+color: #0789E5;
+div:nth-child(1) > div > h6 {
+  padding-top: 10px !important;
+}
+}
+
+.btn-nrs {
+border-style: solid;
+  border-color: white;
+  width: 100%;
+  color:white;
+}
+
+
+.carousel {
+  height: 720px;
+  max-height: 736px;
+  min-height: 240px;
+  position: relative;
+  background-position: top center;
+  background-size: cover;
+
+  .carousel-title {
+      // position: absolute;
+      height: 100%;
+      padding: 0px 150px;
+      display: flex;
+      align-items: center;
+      top: 0;
+
+      .carousel-text {
+          .btn-carousel {
+              color: #fff;
+              font-size: 20px !important;
+              padding: 5px 40px;
+
+          }
+      }
+  }
+
+  .controller-carousel {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+
+      .carousel-title {
+          .titles-white {
+              font-size: 30px !important;
+          }
+      }
+
+      .controller {
+          justify-content: center;
+      }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .carousel {
+      max-height: 536px;
+
+      .carousel-title {
+          padding: 0px 8px;
+
+          .btn-carousel {
+            display: none;
+          }
+      }
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .carousel {
+      max-height: 336px;
+
+      .carousel-title {
+          align-items: center;
+      }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .carousel {
+      max-height: 240px;
+
+      .carousel-title {
+          align-items: center;
+
+      }
+  }
+}
+
+.title-banner {
+  font-weight: bold;
+  font-size: 45px;
+  color: #fff;
+}
+
+.color-button{
+  background-color: white;
+  color: black;
+}
+
+.btn-ver-todas{
+  width: 100%;
+  background-color: #730101;
+  color: rgb(255, 255, 255);
+  font-size: 30px !important;
+  font-weight: 500;
+}
+
+.white-box-inverse{
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  width: 100%;
+  padding: 0px 10px;
+  background-color: #fff;
+}
+
+.white-box {
+  width: 100%;
+  padding: 0px 10px;
+  background-color: #fff;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+
+
+  .gray-box {
+      background-color: #e5e5e5;
+      padding: 7px;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 10px;
+      margin: 43px 50px;
+
+      .options {
+          margin: 5px;
+          text-align: center;
+      }
+
+      .options:hover {
+          cursor: pointer;
+          font-weight: bold;
+      }
+
+      .flex-item {
+          flex: 1;
+          padding: 10px 5px;
+      }
+
+      .active {
+          color: #fff;
+          background-color: #172959;
+          border-radius: 10px;
+      }
+  }
+
+  .formation-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .card {
+          border: none;
+          margin: 0px 22px 22px 0px;
+          flex: 1;
+          width: 100%;
+          max-width: 350px;
+
+          img {
+              border-top-left-radius: 15px;
+              border-top-right-radius: 15px;
+          }
+
+          .card-body {
+              background-color: #606060;
+              color: #fff;
+              border-bottom-left-radius: 15px;
+              border-bottom-right-radius: 15px;
+
+              .card-title {
+                  color: #fff !important;
+                  white-space: pre;
+              }
+
+              .links,
+              i {
+                  text-decoration: underline;
+                  color: #fff;
+                  font-size: 18px;
+
+                  &:hover {
+                      cursor: pointer;
+                      color: #d3d3d3;
+                  }
+              }
+          }
+      }
+
+      @media only screen and (max-width : 500px) {
+          .card {
+              margin: 0px 0px 22px 0px;
+          }
+      }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .formation-row {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+.img-box {
+  width: 100%;
+  max-width: 526px;
+}
+
+
+.row-info {
+  .box-text-info {
+      max-width: 645px;
+      font-size: 24px;
+      font-family: roboto;
+      font-weight: 400;
+      line-height: 32px;
+      color: #626262;
+      text-align: justify;
+      white-space: break-spaces;
+  }
+}
+
+.controller {
+  display: flex;
+
+  .controller-options {
+      margin: 0px 2px;
+      border-radius: 25px;
+      height: 15px;
+      width: 48px;
+      background-color: #045590;
+      transition: 0.5s;
+
+      &:hover {
+          cursor: pointer;
+      }
+  }
+
+  .active {
+      width: 80px;
+      background-color: #0092f4;
+      transition: 0.5s;
+  }
+}
+
+.box-img {
+  .img-services {
+      width: 100%;
+      max-width: 526px;
+  }
+}
+
+.reverse-line {
+  flex-direction: initial;
+}
+
+@media only screen and (max-width: 991px) {
+  .reverse-line {
+      flex-direction: column-reverse;
+  }
+}
+
+.formacoes {
+  h1 {
+      margin-bottom: 15px;
+  }
+
+  p {
+      text-align: center;
+  }
+}
+
+
+.Assine a nossa newsletterTitle {
+font-weight: 600;
+font-size: 36px;
+line-height: 60px;
+}
+
+.Assine a nossa newsletterFields {
+font-weight: 600;
+font-size: 24px;
+line-height: 28px;
+}
+
+.Assine a nossa newsletterInputs {
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+border-radius: 8px;
+border: none;
+height: 82px;
+background: #E5E5E5;
+}
+
+.Assine a nossa newsletterCheckBox {
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+}
